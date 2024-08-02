@@ -25,10 +25,11 @@ function App() {
   };
 
   const deleteTask = (taskId) => {
-    const updatedTasks = tasks.filter((task) => task.id !== taskId);
-    setTasks(updatedTasks);
+    if (window.confirm('Are you sure you want to delete this task?')) {
+      const updatedTasks = tasks.filter((task) => task.id !== taskId);
+      setTasks(updatedTasks);
+    }
   };
-  
 
   const toggleComplete = (taskId) => {
     const updatedTasks = tasks.map((task) =>
